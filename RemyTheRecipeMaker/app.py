@@ -13,7 +13,7 @@ def userQuery(query, chatHistory):
     chatHistory.append({"role":"user", "content": query})
     return chatHistory
 
-def generate_recipe(query, dietary_pref, metric, chatHistory):
+def generate_recipe(query, dietary_pref, metric, chatHistory, macros):
 
     if metric==None:
         metric="Imperial"
@@ -24,25 +24,24 @@ def generate_recipe(query, dietary_pref, metric, chatHistory):
     messages = [
         {"role": "system",
          "content": f'''
-        You are a helpful AI chef and assistant. Your name is Remy. Your goal is to provide the user with cooking tips, tricks, recipes, and to modify recipes as needed. 
-        --if the user does not request a recipe, chat with then and ask how they are doing
-        --if the user asks about cooking tips and tricks, respond with tips and tricks. Do not mention that the user didn't ask for a recipe.
+        You are a friendly AI chef and assistant. Your name is Remy. Your goal is to answer questions and provide recipes. 
+        --if the user is conversational, reply conversationally
+        --if the user asks questions about cooking, respond.
         --if a user *EXPLICITLY* asks for a recipe, then generate one. 
         --Refer to previous recipes, if any {chatHistory}, unless the user asks for a new one
-        --if a user asks for a substitution or a question about a recipe, respond by referring to the recipe most recently generated {chatHistory[len(chatHistory)-2]["content"]}.
+        --if a user asks for a substitution or a question about a recipe, respond by referring to the recipe most recently generated {chatHistory}.
         --include emojis in your responses, but not too many
+        --be concise, but friendly in your responses.
         
         **If a user asks for a recipes, follow these rules**
-        1) The user may have dietary restrictions. If they do, you must abide by these. Do not provide recipes that would go against these restrictions.
+        1) The user may have dietary restrictions. If they do, you must abide by these. Do not provide recipes that would go against these restrictions, regardless of the query. If there is a contradiction between the query and dietary restrictions, ask the user for clarification and do NOT provide a recipe. 
         2) If the user doesn't provide dietary restrictions, you have no limitations. Do not mention anything about not having dietary restrictions.
         3) Provide any measurements in the measurement system specified. 
-        4) Provide nutritional information per serving at the bottom.
-        5) Be polite and talk to them!
-        6) Provide a cooking time estimate
+        4) Provide a cooking estimate time
         '''},
 
         {"role": "user",
-         "content": f"Generate a recipe for: {query}. Follow the dietary restrictions below: {dietary_pref}. Provide measurements in the {metric} system."},
+         "content": f"Respond to: {query} in the language of the query. If asked to make a recipe, follow the dietary restrictions below (if any): {dietary_pref}. Provide measurements in the {metric} system. Provide macronutrients if true: {macros}"},
     ]
 
     completion = client.chat.completions.create(
@@ -90,9 +89,15 @@ with (gr.Blocks( fill_width=True, css=CSS) as demo):
         with gr.Column(scale=4):
             dietary_restrictions=gr.Textbox(placeholder="Enter restrictions here", label="Dietary restrictions")
             metric = gr.Radio(["Metric", "Imperial"], label="Measurement")
+            macros = gr.Checkbox(label="Include Macronutrients?")
         clear = gr.Button("Clear Chat", elem_classes="letmecookButton")
 
-    chatbot = gr.Chatbot(type="messages", show_copy_button=True, label="Remy", avatar_images= [None, "LETMECOOK.png"])
+    chatbot = gr.Chatbot(type="messages", show_copy_button=True, label="Remy", avatar_images= [None, "LETMECOOK.png"], placeholder="<h1 style='text-align: center'>🐁 Remy The Recipe Maker </h1>\n<h4 style='text-align: center'>Ask me about anything cooking related! </h4>")
+    with gr.Row(equal_height=True):
+        prompt1 = gr.Button(value="Tell me a fun, cooking fact")
+        prompt2 = gr.Button(value="Whats the best way to cook poached eggs?")
+        prompt3 = gr.Button(value="Suggest a recipe for date night")
+        prompt4 = gr.Button(value="What seasoning would you recommend for chicken?")
     with gr.Row(equal_height=True, height=50):
         user_input = gr.Textbox(
             placeholder="Ask for a recipe here...",
@@ -108,7 +113,7 @@ with (gr.Blocks( fill_width=True, css=CSS) as demo):
         outputs = chatbot
     ).then(
         fn = generate_recipe,
-        inputs = [user_input, dietary_restrictions, metric, chatHistory],
+        inputs = [user_input, dietary_restrictions, metric, chatHistory, macros],
         outputs = chatbot,
         queue=True,
     ).then(
@@ -125,6 +130,22 @@ with (gr.Blocks( fill_width=True, css=CSS) as demo):
     ).then(
         fn=lambda: "",
         outputs=[dietary_restrictions]
+    )
+    prompt1.click(
+        fn=lambda: prompt1,
+        outputs=user_input
+    )
+    prompt2.click(
+        fn=lambda: prompt2,
+        outputs=user_input
+    )
+    prompt3.click(
+        fn=lambda: prompt3,
+        outputs=user_input
+    )
+    prompt4.click(
+        fn=lambda: prompt4,
+        outputs=user_input
     )
 
 demo.launch()
