@@ -1,0 +1,603 @@
+/*NavBar CSS*/
+
+#navbar_background {
+    background-color: #1B1B1B !important;
+    padding: 3vh !important;
+    height:16vh;
+}
+
+#logo{
+    width: 5vw;
+}
+
+.disabled {
+    color: #FD5970 !important;
+}
+
+.active {
+    color: #FFFFFF !important;
+}
+
+#book_now{
+    background-color:#FD5970 !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
+    border-radius: 2vh;
+}
+
+.nav-item{
+    margin-right:4vh !important;
+    height:10vh;
+}
+
+.nav-link{
+    max-height:fit-content;
+}
+
+/*General page formatting*/
+html{
+    margin: 0;
+    padding: 0;
+    height: 100% !important;
+}
+body{
+    font-family: "Montserrat";
+    padding:0;
+    margin:0;
+    height:100vh !important;
+    width: 100vw !important;
+    background-color: #1B1B1B !important;
+    overflow-x: hidden;
+}
+a{
+    font-size: 3vh !important;
+}
+
+h1{
+    color: white;
+    font-size: 11vh;
+    font-weight: 900;
+}
+
+h3 {
+    color: white;
+    font-weight: bold;
+    font-size: 6vh;
+}
+
+h4{
+    color:white;
+    font-size:5vh;
+}
+
+h5{
+    color:white;
+    font-size:3.5vh;
+}
+
+h6{
+    color: white;
+    font-size: 2.5vh;
+}
+
+label{
+    color: white;
+}
+
+#bricks{
+    display: flex;
+    flex-direction: column;
+    background-image: url(public/bricks_background.png) !important;
+    background-size:cover;
+    background-position: center;
+    max-height: 130vh;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.invisible{
+    display: none;
+}
+
+.visible{
+    display:contents;
+}
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: #FD5970;
+}
+
+/*Home page formatting*/
+#home{
+    visibility: visible;
+}
+
+#central_home{
+    align-content: center;
+    height: 100vh !important;
+}
+
+#home_text{
+    justify-self: center;
+    padding:10px;
+}
+
+#home_button{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    background-color: #FD5970 !important;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border:none;
+    border-radius: 10px;
+    padding:10px;
+    margin:10px;
+    text-align: center;
+
+}
+
+#home_background_image{
+    background-image: url(public/home_background.png); 
+    background-size: cover; 
+    background-position: center; 
+    width: 100%; 
+    height: 100vh;
+    height: fit-content;
+}
+
+
+/*Services page formatting*/
+
+#serviceRow{
+    display: flex;
+    min-height: 100vh;
+
+}
+
+#servicecolumn{
+    height: 100vh;
+}
+
+#servicebox{
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(27, 27, 27, 0.7) !important;
+    border-radius:1vh;
+    min-height: 80vh;
+    position: relative;
+    width: 80%;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 0;
+}
+
+.col{
+    padding: 0;
+    margin: 0;
+}
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+
+#nutritionService{
+    text-align: center;
+    background-image: url(public/nutrition.png) !important;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    height:40vh;
+    mask-image: linear-gradient(to top, rgba(27,27,27,0)0% , rgba(27,27,27,1) 90%);
+}
+
+#programService{
+    text-align: center;
+    background-image: url(public/program_planning.png) !important;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    height:40vh;
+    mask-image: linear-gradient(to top, rgba(27,27,27,0)0% , rgba(27,27,27,1) 90%);
+}
+
+#trainingService{
+    text-align: center;
+    background-image: url(public/training.png) !important;
+    background-size: cover;
+    background-position: center;
+    width:100%;
+    height:40vh;
+    mask-image: linear-gradient(to top, rgba(27,27,27,0)0% , rgba(27,27,27,1) 90%);
+}
+
+#serviceText{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-self:center;
+    padding-top:2vh;
+    padding-left:3vw;
+    padding-right:3vh
+}
+
+#servicePrice{
+    text-align: center;
+    margin-top: 3vh;
+    height:7vh;
+    padding: 0 1vw 0 1w;
+}
+
+#serviceDesc{
+    text-align: center;
+    height:7vh;
+    margin-bottom:10vh;
+    padding: 0 1vw 0 1vw;
+}
+
+#bookNowButton{
+    justify-self: center;
+    background-color: #FD5970 !important;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border:none;
+    border-radius: 10px;
+    padding: 1vh 3vw 1vh 3vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+    margin-bottom: 3vh;
+    text-align: center;
+
+}
+
+/*Contact info page*/
+
+#contact{
+    height: 100vh;
+}
+
+#contact_box{
+    height:auto;
+    padding: 5vh;
+}
+
+#title{
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+#contactrow{
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 2vh;
+    background-color:rgba(27, 27, 27, 0.7) !important;
+    min-height: 10vh;
+    padding:2vh;
+    align-items: center;
+}
+
+#pngsymbol{
+    height: 5vh;
+    width: auto;
+}
+
+.row{
+    margin: 1vh;
+}
+
+#contact-text{
+    display: flex;
+    flex-direction: column;
+    flex:wrap;
+}
+
+#map_frame{
+    height: 80vh;
+    width: 40vw;
+}
+#map{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    height:100%
+}
+
+/*About us page*/
+#about{
+    height:100vh
+}
+
+#titleContact{
+    text-align: center;
+    margin-top: 2vh;
+}
+
+#descriptionbox{
+    display: flex;
+    align-items: center;
+    padding:0;
+    margin-left:8vh;
+    margin-right:8vh;
+    height:30vh;
+    background-color: rgba(27, 27, 27, 0.7) !important;
+}
+
+#personalTrainerPhoto{
+    height:30vh;
+}
+
+#textcontent{
+    padding: 2vh;
+}
+
+#reviewbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#review{
+    width: 29vw;
+    height:40vh;
+    background-color: rgba(27, 27, 27, 0.7) !important;
+    margin-left:2vh;
+    margin-right: 2vh;
+}
+
+#reviewInfo{
+    display: flex;
+    align-items: center;
+    margin: 2vh;
+    height: 10vh;
+}
+
+/*Confirmation page*/
+#confirmBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#confirmbox{
+    display:flex;
+    background-color: rgba(27, 27, 27, 0.7) !important;
+    align-items: center;
+    justify-content: center;
+    width:60vw;
+}
+#textconfirm{
+    text-align: center;
+    padding:7vh;
+}
+.textSpace{
+    padding:2vh
+}
+
+#location_button{
+    justify-self: center;
+    background-color: #FD5970 !important;
+    color: white;
+    font-size: 4vh;
+    font-weight: bold;
+    border:none;
+    border-radius: 10px;
+    padding:2vh;
+    margin-top:4vh;
+    text-align: center;
+
+}
+
+/* booking page */
+
+#confirmBox{
+    padding-top:100px;
+}
+
+#serviceBook{
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin-bottom: 2vh;
+    background-color:rgba(27, 27, 27, 0.7) !important;
+    min-height: 25vh;
+    align-items: center;
+    border:none;
+}
+
+#serviceChoice{
+    margin:0;
+    padding:0;
+    height: 25vh;
+    width:16vw;
+    display: block;
+    object-fit: cover;
+    mask-image: linear-gradient(to left, rgba(0,0,0,0)0% , rgba(27,27,27,0.7) 100%);
+}
+
+.unselected{
+    background-color: #5B5B5B;
+    height:25vh;
+    width:3vh
+}
+
+.selected{
+    background-color: #FD5970;
+    height:25vh;
+    width:3vh
+}
+
+#bookingDetails{
+    background-color:rgba(27, 27, 27, 0.7) !important;
+    width: 50vw;
+    margin:5vh;
+    padding: 5vh;
+    height: fit-content;
+}
+
+#bookingTitle{
+    text-align: center;
+}
+
+input{
+    border-radius: 2vh;
+    border:0;
+}
+
+#inputBox{
+    margin:0.5vh 1vw 0.5vh 1vw;
+}
+
+#personalInfo{
+    margin-bottom: 40px;
+}
+
+.calendar{
+    width:100%;
+    height:auto;
+    display:flex;
+    flex-direction:column;
+    padding:1vh;
+    background:#1B1B1B;
+    border-radius:2vh;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:1vh;
+    color:white;
+}
+
+.monthYear{
+    font-size: 2.5vh;
+    font-weight: bold;
+}
+
+.header button{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    border:none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 4vh;
+    height:6vh;
+    background-color: #1B1B1B;
+    color:white;
+}
+
+.days{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+}
+
+.day{
+    text-align: center;
+    color: #FFFFFF;
+    padding: 0.5vh;
+    font-size: 2.5vh;
+
+}
+
+.dates{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5vh;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1vh;
+    margin: auto;
+    cursor: pointer;
+    border-radius: 50%;;
+    width: 6vh;
+    height: 6vh;
+    transition: 0.2s;
+    color: white;
+    font-size: 2.5vh;
+}
+
+.inactive:hover,
+.date.active{
+    background-color: #FD5970;
+    color:#FFFFFF
+}
+
+
+.notavail{
+    color:#5B5B5B;
+    cursor:default;
+}
+
+#timeBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#timesList{
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height:40vh;
+    align-items: center;
+}
+
+.time{
+    border-radius: 2vh;
+    padding: 1vh;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 6vh 1.5vh 6vh;
+    width: 10vw;
+}
+.inactiveTime{
+    color:black;
+    background-color: white;
+}
+
+.activeTime{
+    color: white;
+    background-color: #FD5970;
+}
+
+#bookingBoxTime{
+align-items: center;
+justify-content: center;
+}
+
+#timeSlotBook{
+    justify-self: center;
+    background-color: #FD5970 !important;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border:none;
+    border-radius: 10px;
+    padding:10px;
+    margin:10px;
+    text-align: center;
+    width: 30%
+}
+
